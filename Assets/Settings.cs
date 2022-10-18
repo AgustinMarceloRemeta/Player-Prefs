@@ -16,13 +16,13 @@ public class Settings : MonoBehaviour
     private void GetValues()
     {
         if (PlayerPrefs.HasKey("inputName")) nameInput.text = PlayerPrefs.GetString("inputName");
-        else PlayerPrefs.SetString("inputName", nameInput.text);
+        else nameInput.text = "";
 
         if (PlayerPrefs.HasKey("volume")) volumeSlider.value = PlayerPrefs.GetFloat("volume");
-        else PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        else volumeSlider.value = 0;
 
         if (PlayerPrefs.HasKey("resolution")) resolution.value = PlayerPrefs.GetInt("resolution");
-        else PlayerPrefs.SetInt("resolution", resolution.value);
+        else resolution.value = 0;
     }
 
     public void SetVolumen()
@@ -43,5 +43,6 @@ public class Settings : MonoBehaviour
     public void ResetDefault()
     {
         PlayerPrefs.DeleteAll();
+        GetValues();
     }
 }
