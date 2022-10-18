@@ -8,37 +8,25 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private TMP_Dropdown resolution;
 
-    private void Start()
-    {
-        GetValues();
-    }
+    private void Start() => GetValues();
+    
 
     private void GetValues()
     {
-        if (PlayerPrefs.HasKey("inputName")) nameInput.text = PlayerPrefs.GetString("inputName");
-        else nameInput.text = "";
-
-        if (PlayerPrefs.HasKey("volume")) volumeSlider.value = PlayerPrefs.GetFloat("volume");
-        else volumeSlider.value = 0;
-
-        if (PlayerPrefs.HasKey("resolution")) resolution.value = PlayerPrefs.GetInt("resolution");
-        else resolution.value = 0;
+      nameInput.text = PlayerPrefs.HasKey("inputName") ?  PlayerPrefs.GetString("inputName") : "";
+      volumeSlider.value = PlayerPrefs.HasKey("volume")? PlayerPrefs.GetFloat("volume") : 0 ;
+      resolution.value = PlayerPrefs.HasKey("resolution") ? PlayerPrefs.GetInt("resolution") : 0;
+     
     }
 
-    public void SetVolumen()
-    {
-        PlayerPrefs.SetFloat("volume", volumeSlider.value);
-    }
+    public void SetVolumen() => PlayerPrefs.SetFloat("volume", volumeSlider.value);
 
-    public void SetName()
-    {
-        PlayerPrefs.SetString("inputName", nameInput.text);  
-    }
 
-    public void SetResolution()
-    {
-        PlayerPrefs.SetInt("resolution", resolution.value);
-    }
+    public void SetName() => PlayerPrefs.SetString("inputName", nameInput.text);  
+
+
+    public void SetResolution() => PlayerPrefs.SetInt("resolution", resolution.value);
+
 
     public void ResetDefault()
     {
