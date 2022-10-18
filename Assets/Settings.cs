@@ -10,26 +10,38 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-       
+        GetValues();
+    }
+
+    private void GetValues()
+    {
+        if (PlayerPrefs.HasKey("inputName")) nameInput.text = PlayerPrefs.GetString("inputName");
+        else PlayerPrefs.SetString("inputName", nameInput.text);
+
+        if (PlayerPrefs.HasKey("volume")) volumeSlider.value = PlayerPrefs.GetFloat("volume");
+        else PlayerPrefs.SetFloat("volume", volumeSlider.value);
+
+        if (PlayerPrefs.HasKey("resolution")) resolution.value = PlayerPrefs.GetInt("resolution");
+        else PlayerPrefs.SetInt("resolution", resolution.value);
     }
 
     public void SetVolumen()
     {
-        // Guardar los datos del volumen.
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
     }
 
     public void SetName()
     {
-        // Guardar los datos del nombre.
+        PlayerPrefs.SetString("inputName", nameInput.text);  
     }
 
     public void SetResolution()
     {
-        // Guardar los datos de la resolucion.
+        PlayerPrefs.SetInt("resolution", resolution.value);
     }
 
     public void ResetDefault()
     {
-        // Borrar todos los datos existentes.
+        PlayerPrefs.DeleteAll();
     }
 }

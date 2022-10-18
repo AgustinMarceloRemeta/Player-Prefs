@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameInput: {fileID: 737620427}
-  sfxSlider: {fileID: 1976207525}
+  volumeSlider: {fileID: 1976207525}
   resolution: {fileID: 186822167}
 --- !u!1 &1807196138
 GameObject:
